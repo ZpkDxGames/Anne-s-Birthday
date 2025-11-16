@@ -51,6 +51,7 @@
      SPACING SCALE
      ═══════════════════════════════════════ */
   
+  --space-2xs: 0.25rem;  /* 4px */
   --space-xs: 0.5rem;    /* 8px */
   --space-sm: 1rem;      /* 16px */
   --space-md: 1.5rem;    /* 24px */
@@ -292,4 +293,55 @@ img, a {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/* ═══════════════════════════════════════
+   MOBILE OPTIMIZATIONS
+   ═══════════════════════════════════════ */
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button, a, input, textarea, select {
+    min-height: 44px; /* iOS minimum recommended touch target */
+    min-width: 44px;
+  }
+  
+  /* Prevent text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Smoother scrolling on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Android Chrome specific fixes */
+@media (max-width: 768px) {
+  /* Fix for Android Chrome viewport height with address bar */
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
 }

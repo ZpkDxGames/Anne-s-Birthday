@@ -482,13 +482,43 @@ noscript {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
+  .splash-container {
+    padding: var(--space-md);
+  }
+  
+  .loading-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .loading-text {
+    font-size: var(--font-size-xs);
+  }
+  
   .photo-frame {
-    width: 220px;
-    height: 220px;
+    width: 240px;
+    height: 240px;
   }
   
   .click-prompt {
     font-size: var(--font-size-base);
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    margin-top: var(--space-lg);
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .loading-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .photo-frame {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .click-prompt {
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) var(--space-md);
   }
 }

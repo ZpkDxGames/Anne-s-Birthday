@@ -270,31 +270,103 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .puns-container {
-        padding: var(--space-md);
+        padding: var(--space-sm);
+      }
+      
+      .puns-title {
+        font-size: var(--font-size-2xl);
+      }
+      
+      .puns-subtitle {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--space-xl);
       }
       
       .pun-card {
-        padding: var(--space-lg);
-        min-height: 160px;
+        padding: var(--space-md);
+        min-height: 180px;
       }
       
       .pun-icon {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: var(--space-sm);
       }
       
       .pun-text {
+        font-size: var(--font-size-base);
+      }
+      
+      .pun-answer {
         font-size: var(--font-size-lg);
+        padding: var(--space-md);
+      }
+      
+      .reveal-button {
+        width: 45px;
+        height: 45px;
+        font-size: var(--font-size-xl);
       }
       
       .pun-button {
         padding: var(--space-sm) var(--space-lg);
         font-size: var(--font-size-base);
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .pun-counter {
+        margin-top: var(--space-md);
+        font-size: var(--font-size-xs);
       }
       
       .back-button {
-        top: var(--space-md);
-        left: var(--space-md);
+        top: var(--space-sm);
+        left: var(--space-sm);
         padding: var(--space-xs) var(--space-sm);
         font-size: var(--font-size-xs);
+      }
+      
+      .back-button .icon {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .puns-title {
+        font-size: var(--font-size-xl);
+      }
+      
+      .puns-subtitle {
+        font-size: var(--font-size-sm);
+      }
+      
+      .pun-card {
+        padding: var(--space-sm);
+        min-height: 160px;
+      }
+      
+      .pun-icon {
+        font-size: 2rem;
+      }
+      
+      .pun-text {
+        font-size: var(--font-size-sm);
+      }
+      
+      .pun-answer {
+        font-size: var(--font-size-base);
+      }
+      
+      .reveal-button {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-lg);
+      }
+      
+      .pun-button {
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--font-size-sm);
       }
     }

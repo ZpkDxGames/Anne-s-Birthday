@@ -7,20 +7,24 @@ body {
     var(--color-bg-dark) 100%
   );
   overflow: hidden;
+  height: 100dvh;
+  position: fixed;
+  width: 100%;
 }
 
 .messages-page {
-  min-height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: var(--space-lg);
-  padding-top: calc(var(--space-lg) + 60px);
-  padding-bottom: calc(var(--space-2xl) + 100px);
+  justify-content: space-between;
+  padding: var(--space-md);
+  padding-top: calc(var(--space-md) + 60px);
+  padding-bottom: calc(var(--space-md) + 80px);
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 /* Back button */
@@ -118,6 +122,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  min-height: 0;
   opacity: 0;
   animation: fadeIn var(--duration-base) var(--ease-soft) 0.6s forwards;
 }
@@ -134,13 +139,15 @@ body {
 /* Message card */
 .message-card {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-height: 70vh;
   background: var(--color-bg-card);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);
   display: flex;
@@ -151,7 +158,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s var(--ease-soft);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .message-card::before {
@@ -173,6 +180,7 @@ body {
   opacity: 1;
   pointer-events: auto;
   z-index: 10;
+  transform: translate(-50%, -50%);
 }
 
 /* Fade animations */
@@ -187,22 +195,22 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate(-50%, calc(-50% + 20px));
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
   }
 }
 
 @keyframes fadeOutDown {
   from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
   }
   to {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translate(-50%, calc(-50% - 20px));
   }
 }
 
@@ -250,13 +258,13 @@ body {
 /* Navigation controls */
 .message-navigation {
   position: fixed;
-  bottom: calc(var(--space-lg) + 50px);
+  bottom: calc(var(--space-md) + 45px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   opacity: 0;
   animation: fadeIn var(--duration-base) var(--ease-soft) 0.8s forwards;
   z-index: 100;
@@ -344,9 +352,9 @@ body {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .messages-page {
-    padding: var(--space-md);
-    padding-top: calc(var(--space-md) + 60px);
-    padding-bottom: calc(var(--space-2xl) + 100px);
+    padding: var(--space-xs);
+    padding-top: calc(var(--space-xs) + 55px);
+    padding-bottom: calc(var(--space-xs) + 75px);
   }
   
   .messages-header {
@@ -354,36 +362,15 @@ body {
   }
   
   .messages-header h1 {
-    font-size: var(--font-size-2xl);
-  }
-  
-  .messages-header p {
-    font-size: var(--font-size-sm);
-  }
-  
-  .message-counter {
-    margin-bottom: var(--space-sm);
-  }
-  
-  .message-card {
-    padding: var(--space-lg);
-  }
-  
-  .message-icon {
-    font-size: 3rem;
-    margin-bottom: var(--space-sm);
-  }
-  
-  .message-title {
     font-size: var(--font-size-xl);
   }
   
-  .message-content {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
+  .messages-header p {
+    font-size: var(--font-size-xs);
   }
   
   .message-counter {
+    margin-bottom: var(--space-xs);
     font-size: var(--font-size-xs);
   }
   
@@ -391,33 +378,65 @@ body {
     font-size: var(--font-size-base);
   }
   
+  .message-card {
+    padding: var(--space-md);
+    max-height: 65vh;
+    width: 98%;
+  }
+  
+  .message-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .message-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .message-date {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--space-md);
+  }
+  
+  .message-content {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+  }
+  
+  .message-signature {
+    font-size: var(--font-size-sm);
+    padding-top: var(--space-sm);
+  }
+  
   .message-navigation {
-    gap: var(--space-xl);
-    bottom: calc(var(--space-md) + 50px);
+    gap: var(--space-lg);
+    bottom: calc(var(--space-xs) + 40px);
   }
   
   .nav-btn {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
   
   .nav-btn .icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
   
   .message-dots {
-    bottom: var(--space-md);
+    bottom: var(--space-xs);
+    gap: var(--space-xs);
   }
   
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
   
   .back-button {
-    top: var(--space-md);
-    left: var(--space-md);
+    top: var(--space-xs);
+    left: var(--space-xs);
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--font-size-xs);
   }
@@ -425,5 +444,58 @@ body {
   .back-button .icon {
     width: 14px;
     height: 14px;
+  }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+  .messages-page {
+    padding: 0;
+    padding-top: calc(var(--space-2xs) + 50px);
+    padding-bottom: calc(var(--space-2xs) + 70px);
+  }
+  
+  .messages-header h1 {
+    font-size: var(--font-size-lg);
+  }
+  
+  .messages-header p {
+    font-size: 0.7rem;
+  }
+  
+  .message-card {
+    padding: var(--space-sm);
+    max-height: 60vh;
+  }
+  
+  .message-icon {
+    font-size: 2rem;
+  }
+  
+  .message-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .message-content {
+    font-size: var(--font-size-xs);
+  }
+  
+  .message-signature {
+    font-size: var(--font-size-xs);
+  }
+  
+  .nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .nav-btn .icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
   }
 }

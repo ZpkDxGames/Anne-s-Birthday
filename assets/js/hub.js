@@ -1,10 +1,12 @@
 // Navigation utilities (inline)
     function goBack() {
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = '../index.html';
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (overlay) {
+        overlay.classList.add('active');
       }
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 300);
     }
     
     function navigateTo(path) {
@@ -51,6 +53,16 @@
       hubModal.classList.remove('active');
       document.body.style.overflow = '';
     }
+    
+    // Fade in page on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (overlay) {
+        setTimeout(() => {
+          overlay.classList.remove('active');
+        }, 100);
+      }
+    });
     
     // Event listeners
     openMenuButton.addEventListener('click', openModal);
