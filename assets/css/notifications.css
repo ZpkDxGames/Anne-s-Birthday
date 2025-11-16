@@ -1,0 +1,162 @@
+/* Custom Notification System */
+
+.notification-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-soft);
+}
+
+.notification-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.notification-box,
+.notification-modal {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-xl);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-dramatic);
+  transform: scale(0.9) translateY(-20px);
+  transition: transform 0.3s var(--ease-bounce);
+}
+
+.notification-overlay.active .notification-box,
+.notification-overlay.active .notification-modal {
+  transform: scale(1) translateY(0);
+}
+
+.notification-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.notification-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.notification-message {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+.notification-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-lg);
+  transition: all var(--duration-fast) var(--ease-soft);
+}
+
+.notification-input:focus {
+  outline: none;
+  border-color: var(--color-accent-calm);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.notification-input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 0.6;
+}
+
+.notification-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.notification-btn {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 100px;
+}
+
+.notification-btn.primary {
+  background: linear-gradient(135deg, var(--color-accent-calm), var(--color-accent-hope));
+  color: white;
+  border: none;
+}
+
+.notification-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.notification-btn.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-secondary);
+}
+
+.notification-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.notification-btn.danger {
+  background: rgba(255, 107, 157, 0.2);
+  color: #ff6b9d;
+  border-color: rgba(255, 107, 157, 0.3);
+}
+
+.notification-btn.danger:hover {
+  background: rgba(255, 107, 157, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}

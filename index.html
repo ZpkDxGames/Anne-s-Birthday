@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎂</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+  <noscript>
+    <div>
+      <h2>JavaScript Required</h2>
+      <p>This birthday experience works best with JavaScript enabled. Please enable it to continue! ❤️</p>
+    </div>
+  </noscript>
+
+  <!-- Loading screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <h1 class="loading-title">Preparing Something Special... 🎂</h1>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+      <p class="loading-text">Wait a fucking second, bitch...</p>
+    </div>
+  </div>
+
+  <div class="splash-container">
+    <!-- Vignette overlay -->
+    <div class="vignette"></div>
+    
+    <!-- Photo frame with her picture -->
+    <div class="photo-frame">
+      <!-- Replace with actual photo path -->
+      <img src="assets/images/characters/anne.webp" alt="Birthday person" id="profileImage" referrerpolicy="no-referrer">
+    </div>
+    
+    <!-- Click prompt button -->
+    <button class="click-prompt" id="enterButton">
+      Let the surprise begins
+    </button>
+    
+    <!-- Background sparkles (generated via JS) -->
+    <div id="sparklesContainer"></div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+
+  <!-- External JavaScript -->
+  <script src="assets/js/index.js"></script>
+</body>
+</html>
+

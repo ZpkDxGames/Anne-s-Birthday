@@ -1,0 +1,295 @@
+/*
+ * Theme Variables — Birthday Website
+ * Defines the emotional color palette, spacing, and design tokens
+ */
+
+:root {
+  /* ═══════════════════════════════════════
+     COLOR PALETTE - Blue, Purple & Black
+     ═══════════════════════════════════════ */
+  
+  /* Background gradients — deep blacks with blue/purple undertones */
+  --color-bg-dark: #0a0a0f;
+  --color-bg-medium: #12121c;
+  --color-bg-light: #1a1a28;
+  --color-bg-card: rgba(30, 30, 50, 0.6);
+  --color-bg-card-hover: rgba(40, 40, 60, 0.7);
+  
+  /* Text hierarchy */
+  --color-text-primary: #f0f0ff;
+  --color-text-secondary: #b8b8e0;
+  --color-text-muted: #7878a8;
+  
+  /* Emotional accent colors - Blue & Purple themed */
+  --color-accent-love: #8b5cf6;        /* Deep Purple - Wonder, magic */
+  --color-accent-joy: #a78bfa;         /* Light Purple - Joy, delight */
+  --color-accent-calm: #3b82f6;        /* Vibrant Blue - Trust, calm */
+  --color-accent-hope: #60a5fa;        /* Sky Blue - Hope, dreams */
+  --color-accent-vibrant: #ec4899;     /* Pink accent for highlights */
+  
+  /* Functional colors */
+  --color-success: #6366f1;
+  --color-info: #3b82f6;
+  --color-warning: #8b5cf6;
+  --color-error: #dc2626;
+  
+  /* ═══════════════════════════════════════
+     SHADOWS & GLOWS
+     ═══════════════════════════════════════ */
+  
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-lifted: 0 12px 40px rgba(0, 0, 0, 0.6);
+  --shadow-dramatic: 0 20px 60px rgba(0, 0, 0, 0.7);
+  
+  --glow-love: 0 0 30px rgba(139, 92, 246, 0.6);
+  --glow-joy: 0 0 30px rgba(167, 139, 250, 0.6);
+  --glow-calm: 0 0 30px rgba(59, 130, 246, 0.6);
+  --glow-hope: 0 0 30px rgba(96, 165, 250, 0.6);
+  
+  /* ═══════════════════════════════════════
+     SPACING SCALE
+     ═══════════════════════════════════════ */
+  
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2.5rem;    /* 40px */
+  --space-xl: 4rem;      /* 64px */
+  --space-2xl: 6rem;     /* 96px */
+  
+  /* ═══════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════ */
+  
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 2rem;      /* 32px */
+  --font-size-3xl: 2.5rem;    /* 40px */
+  --font-size-4xl: 3rem;      /* 48px */
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* ═══════════════════════════════════════
+     ANIMATION TIMING
+     ═══════════════════════════════════════ */
+  
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-base: 350ms;
+  --duration-slow: 600ms;
+  --duration-cinematic: 1200ms;
+  
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+  
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 30px;
+  --border-radius-full: 9999px;
+  
+  --max-width-content: 1200px;
+  --max-width-text: 700px;
+  
+  /* ═══════════════════════════════════════
+     Z-INDEX LAYERS
+     ═══════════════════════════════════════ */
+  
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-tooltip: 500;
+}
+
+/* ═══════════════════════════════════════
+   REDUCED MOTION SUPPORT
+   ═══════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-cinematic: 0ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL RESETS & BASE STYLES
+   ═══════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, #000000 0%, var(--color-bg-dark) 50%, #0a0a1a 100%);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════
+   CUSTOM OVERLAY SCROLLBARS (GLOBAL)
+   ═══════════════════════════════════════ */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-sm);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-accent-calm);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-soft);
+}
+
+a:hover {
+  color: var(--color-accent-joy);
+}
+
+/* ═══════════════════════════════════════
+   BUTTON BASE
+   ═══════════════════════════════════════ */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: inherit;
+  touch-action: manipulation;
+}
+
+/* ═══════════════════════════════════════
+   ACCESSIBILITY
+   ═══════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-calm);
+  outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ═══════════════════════════════════════
+   PREVENT DRAGGING (PRIVACY)
+   ═══════════════════════════════════════ */
+
+img, a {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

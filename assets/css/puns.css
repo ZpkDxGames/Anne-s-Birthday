@@ -1,0 +1,300 @@
+.puns-container {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Back button */
+    .back-button {
+      position: fixed;
+      top: var(--space-lg);
+      left: var(--space-lg);
+      background: var(--color-bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-full);
+      padding: var(--space-sm) var(--space-md);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-soft);
+      backdrop-filter: blur(10px);
+      font-size: var(--font-size-sm);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    
+    .back-button .icon {
+      width: 16px;
+      height: 16px;
+      filter: brightness(0) saturate(100%) invert(71%) sepia(8%) saturate(318%) hue-rotate(182deg) brightness(92%) contrast(90%);
+      transition: filter var(--duration-fast) var(--ease-soft);
+    }
+    
+    .back-button:hover {
+      background: var(--color-bg-card-hover);
+      color: var(--color-text-primary);
+      transform: translateX(-4px);
+      border: 2px solid rgba(236, 72, 153, 0.6);
+    }
+    
+    .back-button:hover .icon {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(324deg) brightness(105%) contrast(105%);
+    }
+    
+    /* Main content */
+    .puns-content {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .puns-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(
+        135deg,
+        var(--color-accent-joy),
+        var(--color-accent-love)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--space-sm);
+      animation: fadeIn var(--duration-base) var(--ease-soft);
+    }
+    
+    .puns-subtitle {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--space-2xl);
+      animation: fadeIn var(--duration-base) var(--ease-soft) 0.2s backwards;
+    }
+    
+    /* Pun display card */
+    .pun-card {
+      background: var(--color-bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      animation: fadeIn var(--duration-base) var(--ease-soft) 0.4s backwards;
+      transition: all 0.4s var(--ease-soft);
+      overflow: visible;
+      position: relative;
+      min-height: 250px;
+    }
+    
+    .pun-icon {
+      font-size: 4rem;
+      margin-bottom: var(--space-md);
+      animation: bounce 1s var(--ease-bounce);
+    }
+    
+    .pun-text {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    .pun-answer {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-2xl);
+      line-height: var(--line-height-relaxed);
+      color: var(--color-accent-hope);
+      font-weight: var(--font-weight-semibold);
+      padding: var(--space-xl);
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s var(--ease-soft);
+      z-index: 10;
+    }
+    
+    .pun-answer.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .reveal-button {
+      margin: var(--space-md) 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-accent-calm), var(--color-accent-hope));
+      color: white;
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-soft), transform var(--duration-fast) var(--ease-soft), margin 0.3s var(--ease-soft);
+      box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+    }
+    
+    .reveal-button:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
+    }
+    
+    .reveal-button:active {
+      transform: scale(0.95);
+    }
+    
+    .pun-category {
+      display: none;
+    }
+    
+    .pun-card {
+      transition: all 0.4s var(--ease-soft);
+    }
+    
+    /* Pun button */
+    .pun-button {
+      padding: var(--space-md) var(--space-xl);
+      background: linear-gradient(
+        135deg,
+        var(--color-accent-joy),
+        var(--color-accent-love)
+      );
+      color: white;
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-soft);
+      box-shadow: 0 4px 20px rgba(255, 217, 61, 0.4);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp var(--duration-base) var(--ease-soft) 0.6s backwards;
+    }
+    
+    .pun-button:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 30px rgba(255, 217, 61, 0.6);
+    }
+    
+    .pun-button:active {
+      transform: translateY(-2px) scale(1.02);
+    }
+    
+    .pun-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .pun-button:active::before {
+      width: 300px;
+      height: 300px;
+    }
+    
+    /* Counter */
+    .pun-counter {
+      margin-top: var(--space-lg);
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
+      animation: fadeIn var(--duration-base) var(--ease-soft) 0.8s backwards;
+    }
+    
+    /* Animations for pun changes */
+    .pun-card.changing .pun-text {
+      animation: slideUpFadeOut 0.3s var(--ease-soft) forwards;
+    }
+    
+    .pun-card.changed .pun-text {
+      animation: slideUpFadeIn 0.5s var(--ease-soft) forwards;
+    }
+    
+    @keyframes slideUpFadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+    
+    @keyframes slideUpFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Loading state */
+    .pun-button.loading {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    
+    .pun-button.loading::after {
+      content: '...';
+      position: absolute;
+      right: var(--space-md);
+      animation: loadingDots 1s infinite;
+    }
+    
+    @keyframes loadingDots {
+      0%, 20% { content: '.'; }
+      40% { content: '..'; }
+      60%, 100% { content: '...'; }
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .puns-container {
+        padding: var(--space-md);
+      }
+      
+      .pun-card {
+        padding: var(--space-lg);
+        min-height: 160px;
+      }
+      
+      .pun-icon {
+        font-size: 3rem;
+      }
+      
+      .pun-text {
+        font-size: var(--font-size-lg);
+      }
+      
+      .pun-button {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--font-size-base);
+      }
+      
+      .back-button {
+        top: var(--space-md);
+        left: var(--space-md);
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--font-size-xs);
+      }
+    }

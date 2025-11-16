@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puns Page</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/puns.css">
+  
+  <style>
+    /* Styles moved to ../css/puns.css */
+  </style>
+</head>
+<body>
+  <div class="puns-container">
+    <!-- Back button -->
+    <button class="back-button" id="backBtn">
+      <img src="../images/icons/arrow-left.svg" alt="Back" class="icon" referrerpolicy="no-referrer">
+      Back
+    </button>
+    
+    <!-- Content -->
+    <div class="puns-content">
+      <h1 class="puns-title">Puns Moment</h1>
+      <p class="puns-subtitle">Need a laugh? Click the button!</p>
+      
+      <!-- Pun display -->
+      <div class="pun-card" id="punCard" style="display: none;">
+        <div class="pun-icon" id="punIcon">🎭</div>
+        <div class="pun-text" id="punText"></div>
+        <button class="reveal-button" id="revealButton" style="display: none;">
+          ?
+        </button>
+        <div class="pun-answer" id="punAnswer" style="display: none;"></div>
+        <span class="pun-category" id="punCategory"></span>
+      </div>
+      
+      <!-- Get pun button -->
+      <button class="pun-button" id="punButton">
+        Give Me a Pun! 🎉
+      </button>
+      
+      <!-- Counter -->
+      <p class="pun-counter" id="punCounter">
+        You've enjoyed 0 puns so far...
+      </p>
+    </div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+  
+  <script src="../js/animations/confetti.js"></script>
+  <script src="../databases/puns.js"></script>
+  <script src="../js/puns.js"></script>
+</body>
+</html>

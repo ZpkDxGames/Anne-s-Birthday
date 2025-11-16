@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chats Page</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/notifications.css">
+  <link rel="stylesheet" href="../css/chats.css">
+  
+  <style>
+    /* Styles moved to ../css/chats.css */
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <!-- Header -->
+    <div class="chat-header">
+      <button class="back-btn" id="backBtn">
+        <img src="../images/icons/arrow-left.svg" alt="Back" class="icon" referrerpolicy="no-referrer">
+        Back
+      </button>
+      
+      <div class="header-title" id="headerTitle">???</div>
+      
+      <div class="header-actions">
+        <button class="icon-btn" id="settingsBtn" title="Session Settings">
+          <img src="../images/icons/settings.svg" alt="Settings" class="icon" referrerpolicy="no-referrer">
+        </button>
+        <button class="icon-btn" id="characterBtn" title="Switch Character">
+          <img src="../images/icons/user.svg" alt="Character" class="icon" referrerpolicy="no-referrer">
+        </button>
+      </div>
+    </div>
+    
+    <!-- Character Selection Modal -->
+    <div class="character-modal" id="characterModal">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <h3>Choose a Character</h3>
+        <div class="character-grid">
+          <button class="character-card" data-character="character-a">
+            <div class="character-emoji">🔪</div>
+            <div class="character-name">Lawrence</div>
+            <div class="character-desc">Deep & Thoughtful</div>
+          </button>
+          <button class="character-card" data-character="character-b">
+            <div class="character-emoji">⚗️</div>
+            <div class="character-name">Dottore</div>
+            <div class="character-desc">Curious & Analytical</div>
+          </button>
+          <button class="character-card" data-character="character-c">
+            <div class="character-emoji">🎭</div>
+            <div class="character-name">Sampo</div>
+            <div class="character-desc">Playful & Creative</div>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Messages Area -->
+    <div class="messages-area" id="messagesArea">
+      <div class="welcome-message" id="welcomeMessage">
+        <h2>Welcome to Chat! 💬</h2>
+        <p>Choose a character above and start a conversation.</p>
+      </div>
+    </div>
+    
+    <!-- Typing Indicator -->
+    <div class="typing-indicator-container" id="typingIndicator">
+      <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <!-- Typing Indicator (user) -->
+    <div class="user-typing-indicator" id="userTypingIndicator">
+      <span>Typing...</span>
+    </div>
+    
+    <!-- Input Area -->
+    <div class="input-area">
+      <textarea 
+        class="message-input" 
+        id="messageInput" 
+        placeholder="Type your message..."
+        rows="1"
+      ></textarea>
+      <button class="send-btn" id="sendBtn">
+        <img src="../images/icons/send.svg" alt="Send" class="icon">
+      </button>
+    </div>
+  </div>
+  
+  <!-- Settings Modal -->
+  <div class="history-modal" id="settingsModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header-row">
+        <h3>Session Settings</h3>
+        <button class="close-modal-btn" id="closeSettingsBtn">×</button>
+      </div>
+      
+      <!-- Session list view -->
+      <div class="history-view" id="characterListView">
+        <p class="history-subtitle">Manage your chat sessions</p>
+        <div class="history-list" id="historyList">
+          <!-- Session management cards will be inserted here -->
+        </div>
+      </div>
+      
+      <!-- Session detail view -->
+      <div class="history-view" id="characterDetailView" style="display: none;">
+        <button class="back-to-list-btn" id="backToListBtn">← Back to Sessions</button>
+        <div class="selected-character-header" id="selectedCharacterHeader">
+          <!-- Selected session info will be displayed here -->
+        </div>
+        <div class="message-preview-list" id="messagePreviewList">
+          <!-- Message previews will be inserted here -->
+        </div>
+        <div class="history-actions">
+          <button class="action-btn clear-btn" id="clearHistoryBtn">🗑️ Clear All Sessions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+  
+  <script src="../js/utils/notifications.js"></script>
+  <script src="../js/ai-logic/groq-api.js"></script>
+  <script src="../js/ai-logic/characters.js"></script>
+  <script src="../js/chats.js"></script>
+</body>
+</html>

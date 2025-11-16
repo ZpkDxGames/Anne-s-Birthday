@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages Page</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/messages.css">
+</head>
+<body>
+  <div class="messages-page">
+    <!-- Back button -->
+    <button class="back-button" id="backBtn">
+      <img src="../images/icons/arrow-left.svg" alt="Back" class="icon" referrerpolicy="no-referrer">
+      Back
+    </button>
+    
+    <!-- Page Header -->
+    <div class="messages-header">
+      <h1>Messages for You</h1>
+      <p>I still have a heart... yet...</p>
+    </div>
+    
+    <!-- Message counter -->
+    <div class="message-counter">
+      Message <span id="currentMessage">1</span> of <span id="totalMessages">0</span>
+    </div>
+    
+    <!-- Main message card stack -->
+    <div class="message-stack-container">
+      <div class="message-stack" id="messageStack">
+        <!-- Message cards will be dynamically inserted here -->
+      </div>
+    </div>
+    
+    <!-- Navigation controls -->
+    <div class="message-navigation">
+      <button class="nav-btn nav-prev" id="prevBtn" disabled>
+        <img src="../images/icons/chevron-left.svg" alt="Previous" class="icon" referrerpolicy="no-referrer">
+      </button>
+      
+      <button class="nav-btn nav-next" id="nextBtn">
+        <img src="../images/icons/chevron-right.svg" alt="Next" class="icon" referrerpolicy="no-referrer">
+      </button>
+    </div>
+    
+    <!-- Navigation dots (fixed at bottom) -->
+    <div class="message-dots" id="messageDots">
+      <!-- Dots will be generated here -->
+    </div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+  
+  <script src="../databases/messages.js"></script>
+  <script src="../js/messages.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistics Page</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/statistics.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <style>
+    /* Styles moved to ../css/statistics.css */
+  </style>
+</head>
+<body>
+  <!-- Fixed header -->
+  <div class="statistics-header">
+        <!-- Back button -->
+    <button class="back-button" id="backBtn">
+      <img src="../images/icons/arrow-left.svg" alt="Back" class="icon" referrerpolicy="no-referrer">
+      Back
+    </button>
+  </div>
+  
+  <div class="statistics-container">
+    <!-- Title -->
+    <div class="page-title">
+      <h1>Fun Statistics</h1>
+      <p>You'll like it 📊</p>
+    </div>
+    
+    <!-- Counter cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🎂</div>
+        <div class="stat-content">
+          <span class="stat-value" data-count-to="9">0</span>
+          <div class="stat-label">Years along by your side</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">😊</div>
+        <div class="stat-content">
+          <span class="stat-value" data-count-to="32478321">0</span>
+          <div class="stat-label">Smiles Shared</div>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-content">
+          <span class="stat-value" id="daysSinceCounter" data-count-to="0">0</span>
+          <div class="stat-label">Days since you starred</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🗣️</div>
+        <div class="stat-content">
+          <span class="stat-value" data-count-to="5329592131">0</span>
+          <div class="stat-label">Times we gossiped</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🤷🏻</div>
+        <div class="stat-content">
+          <span class="stat-value" data-count-to="9853221">0</span>
+          <div class="stat-label">Times we said: "E a Fernanda?..."</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div class="stat-content">
+          <span class="stat-value" data-count-to="7267523">0</span>
+          <div class="stat-label">Amount of internal jokes"</div>
+        </div>
+      </div>
+
+      <div class="stat-card progress-bar-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-content">
+          <div class="stat-label">Friendship Level</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="friendshipProgress" data-progress="696969696969">
+              <div class="progress-bar-fill"></div>
+              <div class="progress-bar-text">0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">💖</div>
+        <div class="stat-content">
+          <div class="progress-ring-container">
+            <svg class="progress-ring" width="150" height="150">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle class="progress-ring-circle progress-ring-bg" cx="75" cy="75" r="65"></circle>
+              <circle class="progress-ring-circle progress-ring-fill" id="awesomeProgress" cx="75" cy="75" r="65" stroke-dasharray="408.407" stroke-dashoffset="408.407"></circle>
+            </svg>
+            <div class="progress-ring-text"><span data-count-to="999">0</span>%</div>
+          </div>
+          <div class="stat-label">I love you (%)</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Charts -->
+    <div class="charts-section">
+      <div class="chart-card">
+        <h3 class="chart-title">Friendship Distribution</h3>
+        <div class="chart-container">
+          <canvas id="happinessChart"></canvas>
+        </div>
+      </div>
+      
+      <div class="chart-card">
+        <h3 class="chart-title">Time Well Spent</h3>
+        <div class="chart-container">
+          <canvas id="timeChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+  
+  <script src="../js/statistics.js"></script>
+</body>
+</html>

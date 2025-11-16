@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub, not the P- one...</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" rel="noopener noreferrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin rel="noopener noreferrer">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" rel="noopener noreferrer">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/hub.css">
+  
+  <style>
+    /* Styles moved to ../css/hub.css */
+  </style>
+</head>
+<body>
+  <div class="hub-container">
+    <!-- Back button -->
+    <button class="back-button" id="backBtn">
+      <img src="../images/icons/arrow-left.svg" alt="Back" class="icon" referrerpolicy="no-referrer">
+      Back
+    </button>
+    
+    <!-- Title -->
+    <div class="hub-title">
+      <h1>Choose Your Next Stop</h1>
+      <p>This is a hub... but not the hot one ✨</p>
+    </div>
+    
+    <!-- Main centered button -->
+    <button class="hub-main-button" id="openMenuButton">
+      Open Menu
+    </button>
+    
+    <!-- Footer text -->
+    <div class="hub-footer">
+      <p><b>Made with love for someone special 💖<br> © 2025 | Tonim</b></p>
+    </div>
+  </div>
+  
+  <!-- Modal popup menu -->
+  <div class="hub-modal" id="hubModal">
+    <div class="hub-modal-backdrop" id="modalBackdrop"></div>
+    <div class="hub-modal-content">
+      <div class="modal-header">
+        <h2>So... what's on your mind?</h2>
+        <p>Don't be shy and choose something fun to do now :D</p>
+      </div>
+      
+      <div class="hub-menu">
+        <!-- Chat option -->
+        <a href="./chats.html" class="hub-menu-item" data-transition>
+          <span class="menu-item-icon">💬</span>
+          <div class="menu-item-content">
+            <div class="menu-item-title">Chat</div>
+            <div class="menu-item-description">
+              Yeah, it is what it sounds like... welcome.
+            </div>
+          </div>
+        </a>
+        
+        <!-- Puns option -->
+        <a href="./puns.html" class="hub-menu-item" data-transition>
+          <span class="menu-item-icon">😄</span>
+          <div class="menu-item-content">
+            <div class="menu-item-title">Puns</div>
+            <div class="menu-item-description">
+              You'll either laugh or regret going there, hehehehehe
+            </div>
+          </div>
+        </a>
+        
+        <!-- Messages option -->
+        <a href="./messages.html" class="hub-menu-item" data-transition>
+          <span class="menu-item-icon">💌</span>
+          <div class="menu-item-content">
+            <div class="menu-item-title">Messages</div>
+            <div class="menu-item-description">
+              Uhuhm, I have a heart... really deep inside me.
+            </div>
+          </div>
+        </a>
+        
+        <!-- Statistics option -->
+        <a href="./statistics.html" class="hub-menu-item" data-transition>
+          <span class="menu-item-icon">📊</span>
+          <div class="menu-item-content">
+            <div class="menu-item-title">Statistics</div>
+            <div class="menu-item-description">
+              Trust me, you'll love it :>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <button class="modal-close" id="closeMenuButton">
+        Return to the hub
+      </button>
+    </div>
+  </div>
+  
+  <!-- Page transition overlay -->
+  <div class="page-transition-overlay"></div>
+  
+  <script src="../js/hub.js"></script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+/* Splash-specific styles */
+.splash-container {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-bg-medium) 0%,
+    var(--color-bg-dark) 100%
+  );
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s var(--ease-soft);
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-love),
+    var(--color-accent-joy)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-2xl);
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loading-bar-container {
+  width: 500px;
+  max-width: 85vw;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 107, 157, 0.2);
+  position: relative;
+}
+
+.loading-bar-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: containerShimmer 2s ease-in-out infinite;
+}
+
+@keyframes containerShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.loading-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-love),
+    var(--color-accent-joy),
+    var(--color-accent-hope),
+    var(--color-accent-love)
+  );
+  background-size: 300% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 20px;
+  width: 0;
+  transform-origin: left;
+  box-shadow: 
+    0 0 20px rgba(255, 107, 157, 0.6),
+    0 0 40px rgba(255, 107, 157, 0.4);
+  position: relative;
+  transition: width 10s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.loading-bar.filling {
+  width: 100%;
+}
+
+.loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  border-radius: 20px 20px 0 0;
+}
+
+@keyframes loadingProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loading-bar.complete {
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.loading-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animated vignette overlay */
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  animation: vignetteReveal 3s var(--ease-dramatic) forwards;
+  animation-play-state: paused;
+  opacity: 1;
+  transform: scale(1.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.vignette.animate {
+  animation-play-state: running;
+}
+
+@keyframes vignetteReveal {
+  0% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* Circular frame for photo */
+.photo-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: photoReveal 1.5s var(--ease-bounce) 2s forwards;
+  animation-play-state: paused;
+  box-shadow: 
+    0 0 0 4px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(255, 107, 157, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.photo-frame.animate {
+  animation-play-state: running;
+}
+
+@keyframes photoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Glowing ring animation around photo */
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    var(--color-accent-love),
+    var(--color-accent-joy),
+    var(--color-accent-calm),
+    var(--color-accent-hope)
+  );
+  background-size: 300% 300%;
+  animation: gradientRotate 6s ease infinite;
+  z-index: -1;
+  filter: blur(12px);
+}
+
+@keyframes gradientRotate {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Pulsing glow effect */
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
+  animation: glowPulseInner 2s var(--ease-soft) infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulseInner {
+  0%, 100% {
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* "Click on me" button */
+.click-prompt {
+  margin-top: var(--space-xl);
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-love),
+    var(--color-accent-hope)
+  );
+  color: white;
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: buttonReveal 1s var(--ease-soft) 3.5s forwards;
+  animation-play-state: paused;
+  box-shadow: 
+    0 4px 20px rgba(255, 107, 157, 0.4),
+    0 0 0 0 rgba(255, 107, 157, 0.7);
+  transition: all 0.3s var(--ease-soft);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.click-prompt.animate {
+  animation-play-state: running;
+}
+
+.click-prompt.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: floatButton 3s ease-in-out infinite !important;
+}
+
+@keyframes buttonReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatButton {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.click-prompt::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-soft);
+  pointer-events: none;
+}
+
+.click-prompt:hover {
+  transform: scale(1.08) translateY(-2px) !important;
+  box-shadow: 
+    0 12px 40px rgba(255, 107, 157, 0.7),
+    0 0 0 2px rgba(255, 107, 157, 0.6),
+    0 0 80px rgba(255, 107, 157, 0.5),
+    inset -10px -10px 30px rgba(255, 255, 255, 0.1),
+    inset 10px 10px 30px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-hope),
+    var(--color-accent-love)
+  );
+  animation: none !important;
+  transition: all 0.4s var(--ease-soft);
+}
+
+.click-prompt:hover::before {
+  opacity: 1;
+}
+
+.click-prompt:active {
+  transform: scale(1.02);
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.click-prompt:active {
+  transform: scale(1.3) !important;
+}
+
+/* Ripple effect on click */
+.click-prompt.ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.5);
+  animation: ripple 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Subtle floating animation */
+.click-prompt.floating {
+  animation: float 3s var(--ease-soft) infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Sparkles background */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Noscript fallback */
+noscript {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: var(--space-lg);
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius-lg);
+  max-width: 400px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .photo-frame {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .click-prompt {
+    font-size: var(--font-size-base);
+    padding: var(--space-sm) var(--space-md);
+  }
+}
