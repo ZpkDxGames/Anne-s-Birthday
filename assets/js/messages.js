@@ -206,7 +206,7 @@ function createDots() {
   });
 }
 
-// Update card positions
+// Update card positions - only show current card, remove others
 function updateCardPositions(animate = true) {
   const cards = messageStack.querySelectorAll('.message-card');
   
@@ -215,10 +215,15 @@ function updateCardPositions(animate = true) {
     card.classList.remove('active', 'fade-in', 'fade-out');
     
     if (index === currentIndex) {
+      // Show current card
       card.classList.add('active');
+      card.style.display = '';
       if (animate) {
         card.classList.add('fade-in');
       }
+    } else {
+      // Completely hide other cards to prevent stacking
+      card.style.display = 'none';
     }
   });
 }

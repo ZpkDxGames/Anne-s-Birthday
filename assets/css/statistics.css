@@ -27,6 +27,7 @@
       font-size: var(--font-size-sm);
       padding: var(--space-sm) var(--space-md);
       border-radius: var(--border-radius-full);
+      cursor: pointer;
       transition: all var(--duration-fast) var(--ease-soft);
       backdrop-filter: blur(10px);
       display: flex;
@@ -44,8 +45,8 @@
     .back-button:hover {
       background: var(--color-bg-card-hover);
       color: var(--color-text-primary);
+      border: 2px solid rgba(255, 107, 157, 0.6);
       transform: translateX(-4px);
-      border: 2px solid rgba(236, 72, 153, 0.6);
     }
     
     .back-button:hover .icon {

@@ -196,7 +196,7 @@
         data: {
           labels: ['Depression', 'Sex', 'Love', 'Minecraft', 'Genshin & Honkai'],
           datasets: [{
-            data: [5, 0, 50, 25, 20],
+            data: [360, -1, 696, 999, 629],
             backgroundColor: [
               'rgba(0, 10, 102, 0.8)',
               'rgba(255, 107, 107, 0.8)',

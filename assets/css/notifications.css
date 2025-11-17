@@ -97,6 +97,9 @@
   transition: all var(--duration-fast) var(--ease-soft);
   border: 1px solid rgba(255, 255, 255, 0.1);
   min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notification-btn.primary {
@@ -106,7 +109,7 @@
 }
 
 .notification-btn.primary:hover {
-  transform: translateY(-2px);
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
 }
 
@@ -128,7 +131,7 @@
 
 .notification-btn.danger:hover {
   background: rgba(255, 107, 157, 0.3);
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 /* Custom Scrollbar */

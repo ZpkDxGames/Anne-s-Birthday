@@ -1,5 +1,11 @@
 // Navigation utilities (inline)
     function goBack() {
+      // Close modal first to prevent black screen
+      const hubModal = document.getElementById('hubModal');
+      if (hubModal) {
+        hubModal.classList.remove('active');
+      }
+      
       const overlay = document.querySelector('.page-transition-overlay');
       if (overlay) {
         overlay.classList.add('active');
@@ -10,6 +16,12 @@
     }
     
     function navigateTo(path) {
+      // Close modal first to prevent black screen
+      const hubModal = document.getElementById('hubModal');
+      if (hubModal) {
+        hubModal.classList.remove('active');
+      }
+      
       const overlay = document.querySelector('.page-transition-overlay');
       if (overlay) {
         overlay.classList.add('active');

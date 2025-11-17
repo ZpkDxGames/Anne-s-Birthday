@@ -20,15 +20,14 @@
       padding: var(--space-sm) var(--space-md);
       color: var(--color-text-secondary);
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all var(--duration-fast) var(--ease-soft);
       backdrop-filter: blur(10px);
       font-size: var(--font-size-sm);
-      z-index: 100;
+      opacity: 0;
+      animation: fadeIn var(--duration-base) var(--ease-soft) 0.2s forwards;
       display: flex;
       align-items: center;
       gap: var(--space-xs);
-      will-change: transform;
-      transform: translateZ(0);
     }
     
     .back-button .icon {
@@ -41,8 +40,8 @@
     .back-button:hover {
       background: var(--color-bg-card-hover);
       color: var(--color-text-primary);
-      transform: translate3d(-4px, 0, 0);
-      border: 2px solid rgba(236, 72, 153, 0.6);
+      border: 2px solid rgba(255, 107, 157, 0.6);
+      transform: translateX(-4px);
     }
     
     .back-button:hover .icon {

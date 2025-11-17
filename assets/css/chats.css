@@ -28,14 +28,12 @@
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--border-radius-full);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--duration-fast) var(--ease-soft);
   font-size: var(--font-size-sm);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  will-change: transform;
-  transform: translateZ(0);
 }
 
 .back-button .icon {
@@ -48,8 +46,8 @@
 .back-button:hover {
   background: var(--color-bg-card-hover);
   color: var(--color-text-primary);
-  transform: translate3d(-4px, 0, 0);
-  border: 2px solid rgba(236, 72, 153, 0.6);
+  border: 2px solid rgba(255, 107, 157, 0.6);
+  transform: translateX(-4px);
 }
 
 .back-button:hover .icon {
@@ -109,7 +107,7 @@
 .icon-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-text-primary);
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .icon-btn:hover .icon {
@@ -182,7 +180,7 @@
 
 .character-card:hover {
   border-color: var(--color-accent-calm);
-  transform: translate3d(0, -8px, 0) scale(1.05);
+  transform: scale(1.08);
   box-shadow: 0 12px 30px rgba(78, 205, 196, 0.5);
 }
 
@@ -637,7 +635,7 @@
 }
 
 .send-btn:hover:not(:disabled) {
-  transform: translateY(-2px) scale(1.05);
+  transform: scale(1.08);
   box-shadow: 0 4px 20px rgba(78, 205, 196, 0.4);
 }
 
@@ -870,6 +868,9 @@
 .history-item.new-session-btn {
   border: 2px dashed rgba(236, 72, 153, 0.4);
   background: rgba(236, 72, 153, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .history-item.new-session-btn:hover {
@@ -958,12 +959,15 @@
   transition: all var(--duration-fast) var(--ease-soft);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .session-action-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   color: var(--color-text-primary);
-  transform: translateY(-1px);
+  transform: scale(1.05);
 }
 
 .session-action-btn.danger {
@@ -992,6 +996,9 @@
   transition: all var(--duration-fast) var(--ease-soft);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .save-btn {
@@ -1001,7 +1008,7 @@
 }
 
 .save-btn:hover {
-  transform: translateY(-2px);
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
 }
 
