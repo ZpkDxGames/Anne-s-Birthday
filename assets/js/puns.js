@@ -1,10 +1,16 @@
-// Navigation utility
+// Navigation utility with smooth transition
 function goBack() {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = '../index.html';
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (overlay) {
+    overlay.classList.add('active');
   }
+  setTimeout(() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = '../index.html';
+    }
+  }, 400);
 }
 
 // Wait utility
@@ -72,6 +78,25 @@ function shuffleArray(array) {
   return shuffled;
 }
 
+// Smooth page fade in with RAF for perfect timing
+function fadeInPage() {
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (overlay) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        overlay.classList.remove('active');
+      });
+    });
+  }
+}
+
+// Add pulse animation to pun button
+function addButtonPulse() {
+  setTimeout(() => {
+    punButton.style.animation = 'pulseScale 2s ease-in-out infinite';
+  }, 1000);
+}
+
 // Initialize
 function init() {
   // Back button
@@ -80,8 +105,25 @@ function init() {
     goBack();
   });
   
-  // Pun button
-  punButton.addEventListener('click', showNextPun);
+  // Fade in page
+  fadeInPage();
+  
+  // Add button pulse
+  addButtonPulse();
+  
+  // Pun button with feedback
+  punButton.addEventListener('click', (e) => {
+    // Remove pulse animation on interaction
+    punButton.style.animation = 'none';
+    
+    // Add click feedback
+    punButton.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      punButton.style.transform = '';
+    }, 100);
+    
+    showNextPun();
+  });
   
   // Reveal button
   revealButton.addEventListener('click', revealAnswer);

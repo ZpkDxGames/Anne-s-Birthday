@@ -1,9 +1,27 @@
-// Navigation utility
+// Navigation utility with smooth transition
 function goBack() {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = '../index.html';
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (overlay) {
+    overlay.classList.add('active');
+  }
+  setTimeout(() => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = '../index.html';
+    }
+  }, 400);
+}
+
+// Smooth page fade in with RAF for perfect timing
+function fadeInPage() {
+  const overlay = document.querySelector('.page-transition-overlay');
+  if (overlay) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        overlay.classList.remove('active');
+      });
+    });
   }
 }
 
@@ -28,6 +46,32 @@ function loadFromStorage(key, defaultValue = null) {
     return item ? JSON.parse(item) : defaultValue;
   } catch (e) {
     return defaultValue;
+  }
+}
+
+// Animate header buttons entrance
+function animateHeaderButtons() {
+  const headerButtons = document.querySelectorAll('.icon-btn');
+  headerButtons.forEach((btn, index) => {
+    btn.style.opacity = '0';
+    btn.style.transform = 'scale(0) rotate(180deg)';
+    setTimeout(() => {
+      btn.style.transition = 'opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      btn.style.opacity = '1';
+      btn.style.transform = 'scale(1) rotate(0deg)';
+    }, 600 + (index * 100));
+  });
+}
+
+// Animate input area entrance
+function animateInputEntrance() {
+  const inputArea = document.querySelector('.input-area');
+  if (inputArea && inputArea.classList.contains('active')) {
+    inputArea.style.transform = 'translateY(100%)';
+    setTimeout(() => {
+      inputArea.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      inputArea.style.transform = 'translateY(0)';
+    }, 800);
   }
 }
 
@@ -120,6 +164,9 @@ let headerTitle;
 
 // Initialize
 function init() {
+  // Fade in page
+  fadeInPage();
+  
   // Get DOM elements
   messagesArea = document.getElementById('messagesArea');
   messageInput = document.getElementById('messageInput');
@@ -128,6 +175,9 @@ function init() {
   userTypingIndicator = document.getElementById('userTypingIndicator');
   characterModal = document.getElementById('characterModal');
   headerTitle = document.getElementById('headerTitle');
+  
+  // Animate header buttons
+  animateHeaderButtons();
   
   // Back button
   document.getElementById('backBtn').addEventListener('click', () => {
@@ -316,6 +366,8 @@ async function selectCharacter(characterId) {
   const inputArea = document.querySelector('.input-area');
   if (inputArea) {
     inputArea.classList.add('active');
+    // Animate entrance
+    animateInputEntrance();
   }
   
   // Load conversation

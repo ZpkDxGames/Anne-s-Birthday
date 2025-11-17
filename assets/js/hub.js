@@ -52,13 +52,15 @@
       hubModal.classList.remove('active');
     }
     
-    // Fade in page on load
+    // Fade in page on load with RAF for perfect timing
     window.addEventListener('DOMContentLoaded', () => {
       const overlay = document.querySelector('.page-transition-overlay');
       if (overlay) {
-        setTimeout(() => {
-          overlay.classList.remove('active');
-        }, 100);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            overlay.classList.remove('active');
+          });
+        });
       }
     });
     
@@ -67,10 +69,12 @@
     closeMenuButton.addEventListener('click', closeModal);
     modalBackdrop.addEventListener('click', closeModal);
     
-    // Add floating animation to main button after initial animation
+    // Add floating animation to main button after initial animation with RAF
     setTimeout(() => {
-      openMenuButton.classList.add('floating');
-    }, 2000);
+      requestAnimationFrame(() => {
+        openMenuButton.classList.add('floating');
+      });
+    }, 1800);
     
     // Close modal on Escape key
     document.addEventListener('keydown', (e) => {

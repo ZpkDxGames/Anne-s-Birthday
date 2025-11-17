@@ -196,7 +196,7 @@
         data: {
           labels: ['Depression', 'Sex', 'Love', 'Minecraft', 'Genshin & Honkai'],
           datasets: [{
-            data: [197, 0, 1876, 999, 789],
+            data: [5, 0, 50, 25, 20],
             backgroundColor: [
               'rgba(0, 10, 102, 0.8)',
               'rgba(255, 107, 107, 0.8)',
@@ -332,9 +332,25 @@
       });
     }
     
+    // Smooth page fade in with RAF for perfect timing
+    function fadeInPage() {
+      const overlay = document.querySelector('.page-transition-overlay');
+      if (overlay) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            overlay.classList.remove('active');
+          });
+        });
+      }
+    }
+    
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
+      document.addEventListener('DOMContentLoaded', () => {
+        init();
+        fadeInPage();
+      });
     } else {
       init();
+      fadeInPage();
     }
