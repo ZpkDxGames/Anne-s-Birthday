@@ -160,6 +160,10 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000000;
 }
 
 body {
@@ -168,8 +172,11 @@ body {
   line-height: var(--line-height-normal);
   color: var(--color-text-primary);
   background: linear-gradient(135deg, #000000 0%, var(--color-bg-dark) 50%, #0a0a1a 100%);
+  background-attachment: fixed;
   min-height: 100dvh;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -331,10 +338,13 @@ img, a {
   body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    overflow-x: hidden;
+    position: relative;
   }
   
   html {
     height: -webkit-fill-available;
+    overflow-x: hidden;
   }
 }
 

@@ -185,11 +185,11 @@ body {
 
 /* Fade animations */
 .message-card.fade-in {
-  animation: fadeInUp 0.5s var(--ease-soft) forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .message-card.fade-out {
-  animation: fadeOutDown 0.4s var(--ease-soft) forwards;
+  animation: fadeOutDown 0.5s var(--ease-smooth) forwards;
 }
 
 @keyframes fadeInUp {

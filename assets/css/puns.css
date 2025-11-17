@@ -187,12 +187,15 @@
     }
     
     .pun-button:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 8px 30px rgba(255, 217, 61, 0.6);
+      transform: translateY(-6px) scale(1.08);
+      box-shadow: 0 12px 40px rgba(255, 217, 61, 0.7),
+                  0 0 60px rgba(255, 107, 157, 0.4);
+      filter: brightness(1.1);
     }
     
     .pun-button:active {
-      transform: translateY(-2px) scale(1.02);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 217, 61, 0.8);
     }
     
     .pun-button::before {

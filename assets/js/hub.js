@@ -67,6 +67,11 @@
     closeMenuButton.addEventListener('click', closeModal);
     modalBackdrop.addEventListener('click', closeModal);
     
+    // Add floating animation to main button after initial animation
+    setTimeout(() => {
+      openMenuButton.classList.add('floating');
+    }, 2000);
+    
     // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && hubModal.classList.contains('active')) {

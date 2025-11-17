@@ -180,8 +180,13 @@
 
 .character-card:hover {
   border-color: var(--color-accent-calm);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(78, 205, 196, 0.5);
+}
+
+.character-card:active {
+  transform: translateY(-4px) scale(1.02);
+  transition: all 0.1s ease-out;
 }
 
 .character-card.active {
