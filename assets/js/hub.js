@@ -5,7 +5,7 @@
         overlay.classList.add('active');
       }
       setTimeout(() => {
-        window.location.href = '../index.html';
+        window.location.href = '../../index.html';
       }, 300);
     }
     
@@ -45,13 +45,11 @@
     // Open modal
     function openModal() {
       hubModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
     }
     
     // Close modal
     function closeModal() {
       hubModal.classList.remove('active');
-      document.body.style.overflow = '';
     }
     
     // Fade in page on load

@@ -723,6 +723,34 @@
   flex-direction: column;
   gap: var(--space-sm);
   margin-bottom: var(--space-md);
+  max-height: 400px;
+  padding-right: var(--space-xs);
+}
+
+/* Visible scrollbar for history list */
+.history-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.4);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Firefox */
+.history-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.4) rgba(255, 255, 255, 0.05);
 }
 
 .back-to-list-btn {
